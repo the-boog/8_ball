@@ -9,9 +9,19 @@ def launch
     ask_me
 end
 
-def random_pick
-    pick = @random_colors.sample
+class Pick (@var)
+    attr_accessor :bald, :fat, :vari
+    
+    def initialize
+        @bald = true
+        @fat = true
+        @vari = @var
+    end
+
+    def random_pick
+    pick = @vari.sample
     puts @answer_key.sample.colorize(pick)
+    end
 end
 
 def ask_me
@@ -63,7 +73,10 @@ def add_answers
     end
 end
 
-
+josh = Pick.new(@random_colors)
+p josh
+p josh.fat
+p josh.random_pick
 #puts "Yes"
 #puts "No"
 #puts"Keep Dreaming Cueball"
@@ -73,4 +86,4 @@ end
 #puts "Maybe In Another Dimension"
 #puts "You Win, Every Time, No Exceptions"
 #random_pick
-launch
+#launch
